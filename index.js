@@ -56,6 +56,10 @@ function cardFactory(cardData) {
   function flipCard(element)
   {
     element.classList.toggle('flipped');
+    const childCards = element.querySelectorAll('.card-front, .card-back');
+    childCards,array.forEach(card => {
+        card.classList.toggle('flipped');
+    });
   }
 
   

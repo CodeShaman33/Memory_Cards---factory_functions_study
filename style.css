@@ -1,0 +1,71 @@
+
+
+body
+{
+    background-color: aquamarine;
+}
+
+#container 
+{
+    width: 90%;
+    height: auto;
+    margin: 10px auto 15px;
+    background-color: rgb(23, 149, 187);
+    border-radius: 20px;
+    border: solid 1px black;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+#cardsContainer
+{
+    display: flex;
+    width: inherit;
+
+}
+
+
+
+#start
+{
+    padding: 10px 10px;
+    background-color: rgb(19, 211, 83);
+    border-radius: 20px;
+    border: 1px solid blueviolet;
+    margin: 10px auto 10px;
+}
+
+#container > #cardsContainer > .card
+{
+    background-color: aliceblue;
+
+    margin: 10px;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.card-front
+{
+    display: block;
+}
+
+.card-back
+{
+    display: none;
+}
+
+.card 
+{
+    padding: 40px 40px;
+}
+
+.card.flipped > .card-front
+{
+    display: none;
+}
+
+.card.flipped > .card-back
+{
+    display: block;
+}
