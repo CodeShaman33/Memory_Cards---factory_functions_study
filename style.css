@@ -21,7 +21,11 @@ body
 #cardsContainer
 {
     display: flex;
-    width: inherit;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;    width: inherit;
 
 }
 
@@ -68,4 +72,11 @@ body
 .card.flipped > .card-back
 {
     display: block;
+}
+
+#start:hover
+{
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
