@@ -1,13 +1,17 @@
 
 
 
-function createCards()
+function createCard(cardData)
 {
-    let parent = document.getElementById('cardsContainer');
-    let card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = 'test';
-    parent.appendChild(card);
+    const card = cardFactory(cardData);
+    const element = document.createElement('div');
+    element.classList.add('card');
+    element.dataset.name = card.name;
+
+    // front side of the card
+    const front = document.createElement('div');
+    front.classList.add('card-front');
+    front.style.backgroundImage = `url(${card.frontImage})`;
+
+
 }
-
-
