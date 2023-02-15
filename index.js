@@ -21,13 +21,12 @@ function createCard(cardData) {
     front.style.backgroundColor = 'red';
     //front.innerHTML = cardData.name;
     front.innerHTML = 'front';
-    front.style.display = 'block';
 
     const back = document.createElement('div');
     back.classList.add('card-back');
     //back.style.backgroundImage = cardData.backImage;
+    back.style.backgroundColor = 'green';
     back.innerHTML = 'back';
-    back.style.display = 'none';
 
     element.appendChild(front);
     element.appendChild(back);
@@ -49,10 +48,19 @@ function cardFactory(cardData) {
 
   function createSet()
   {
-    let parrent = document.getElementById('container');
+    let parrent = document.getElementById('cardsContainer');
     parrent.appendChild(createCard(array[0]));
   }
 
-  document.getElementById('start').addEventListener('click', function(){createSet();});
 
-document.get
+  function flipCard(element)
+  {
+    element.classList.toggle('flipped');
+  }
+
+  
+  document.getElementById('start').addEventListener('click',
+  function()
+  {
+    createSet();});
+
