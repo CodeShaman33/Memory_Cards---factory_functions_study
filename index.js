@@ -1,11 +1,4 @@
-let array = [
-    {
-        name: 'obj1',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 1
-    }
-]
+import array;
 
 
 function createCard(cardData) {
@@ -38,6 +31,7 @@ function createCard(cardData) {
 
 }
 
+// function returns an object based on the data from array
 function cardFactory(cardData) {
     return {
       name: cardData.name,
@@ -52,7 +46,7 @@ function cardFactory(cardData) {
     parrent.appendChild(createCard(array[0]));
   }
 
-
+// function add a class to clicked html elements 
   function flipCard(element)
   {
     element.classList.toggle('flipped');
@@ -62,7 +56,7 @@ function cardFactory(cardData) {
     });
   }
 
-  
+  // function creates cards when button is clicked
   document.getElementById('start').addEventListener('click',
   function()
   {
