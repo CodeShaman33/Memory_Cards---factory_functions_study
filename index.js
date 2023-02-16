@@ -1,3 +1,4 @@
+import { array } from './data.js';
 
 deckArray = []; //place for store all displayed cards
 
@@ -58,7 +59,15 @@ function flipCard(element) {
 document.getElementById('start').addEventListener('click',
     function () {
         createDeck();
+        console.log('WORKS FINE');
     });
+
+document.getElementById('test').addEventListener('click',
+    function () {
+        loopCards();
+    });
+
+
 
 
 function createDeck() {
@@ -67,7 +76,7 @@ function createDeck() {
         let card = document.createElement('div');
         card.classList.add('card');
         let variable = card.getAttribute('class');
-        let newElementId = `${variable}${i+1}`;
+        let newElementId = `${variable}${i + 1}`;
         card.id = newElementId;
         card.innerHTML = newElementId;
         parent.appendChild(card);
@@ -76,5 +85,12 @@ function createDeck() {
     let testElement = document.createElement('div');
     testElement.innerHTML = deckArray;
     parent.appendChild(testElement);
-    
+
+}
+
+
+function loopCards() {
+    deckArray.forEach(function (element) {
+        element.style.backgroundColor = 'red';
+    });
 }
