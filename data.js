@@ -1,4 +1,4 @@
-export let array = [
+let photoArray = [
     {
         name: 'obj1',
         backImage: 'src/photos/photo1.jpg',
@@ -77,5 +77,6 @@ export let array = [
     }
 
 
-]
+];
 
+export {photoArray};

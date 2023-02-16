@@ -1,90 +1,11 @@
 let cardsFlipped = 0;
-
-let array = [
-    {
-        name: 'obj1',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 1
-    },
-
-    {
-        name: 'obj2',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 2
-    },
-
-    {
-        name: 'obj3',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 3
-    },
-
-    {
-        name: 'obj4',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 4
-    },
-
-    {
-        name: 'obj5',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 5
-    },
-
-    {
-        name: 'obj5',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 5
-    },
-
-    {
-        name: 'obj6',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 6
-    },
-
-    {
-        name: 'obj7',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 7
-    },
-
-    {
-        name: 'obj8',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 8
-    },
-
-    {
-        name: 'obj9',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 9
-    },
-
-    {
-        name: 'obj10',
-        backImage: 'src/photos/photo1.jpg',
-        matched: false,
-        id: 10
-    }
-
-
-];
-
-
 let deckArray = []; //place for store all displayed cards
 let cardsLeft = []; // using for modyfing the cards after creating deck 
+let photosLeft = [];
 
+import { photoArray } from "./data";
+
+//This function takes an object containing data for a card, creates a new div element for the card, sets its properties and event listeners, and returns it.
 function createCard(cardData) {
     const card = cardFactory(cardData);
     const element = document.createElement('div');
@@ -152,19 +73,17 @@ document.getElementById('test').addEventListener('click',
 
 
 
-
+// function to create a deck of cards
 function createDeck() {
     let parent = document.getElementById('cardsContainer')
+
     for (let i = 0; i < 10; i++) {
-        let card = document.createElement('div');
-        card.classList.add('card');
-        let variable = card.getAttribute('class');
-        let newElementId = `${i + 1}`;
-        card.id = newElementId;
-        card.innerHTML = newElementId;
-        parent.appendChild(card);
-        deckArray.push(card);
+        let newCard = createCard(photoArray[i]);
+        parent.appendChild(newCard);
     }
+
+    // assign cards and photos to respective arrays
+    asignElements();
     let testElement = document.createElement('div');
     testElement.innerHTML = deckArray;
     parent.appendChild(testElement);
@@ -172,6 +91,48 @@ function createDeck() {
 }
 
 
+// function to randomly assign photos to cards
+function asignElements() {
+    cardsLeft = deckArray;
+    photosLeft = photoArray;
+    let elements = [];
+
+    // loop until all cards are assigned a photo
+    while (cardsLeft.length > 0) {
+        htmlElements = getRandomFromArray(deckArray, 2);
+        randomPhoto = getRandomFromArray(photoArray, 1);
+
+        // assign photo to each card in htmlElements
+        htmlElements.forEach(
+            function (element) {
+                let back = document.getElementById(element.id);
+                back.innerHTML = randomPhoto.name;
+
+            }
+
+        )
+
+        // remove assigned cards and photos from array
+        let cardsLeft = cardsLeft.filter((element) => !htmlElements.includes(element));
+        let photosLeft = photosLeft.filter((element) => !htmlElements.includes(element));
+
+
+    }
+}
+
+function getRandomFromArray(arr, n) {
+    let result = [];
+    const maxIndex = arr.lenght - 1;
+
+    for (let i = 0; i < n; i++) {
+        const randomIndex = Math.floor(Math.random() * (maxIndex + 1));
+        result.push(arr[randomIndex]);
+    }
+    return result;
+}
+
+
+// test function for the developinng process
 function loopCards() {
     deckArray.forEach(function (element) {
         element.style.backgroundColor = 'red';

@@ -1,12 +1,8 @@
-
-
-body
-{
+body {
     background-color: aquamarine;
 }
 
-#container 
-{
+#container {
     width: 90%;
     height: auto;
     margin: 10px auto 15px;
@@ -18,21 +14,20 @@ body
     padding: 10px;
 }
 
-#cardsContainer
-{
+#cardsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    align-content: flex-start;    width: inherit;
+    align-content: flex-start;
+    width: inherit;
 
 }
 
 
 
-#start
-{
+#start {
     padding: 10px 10px;
     background-color: rgb(19, 211, 83);
     border-radius: 20px;
@@ -40,8 +35,7 @@ body
     margin: 10px auto 10px;
 }
 
-#container > #cardsContainer > .card
-{
+#container>#cardsContainer>.card {
     background-color: aliceblue;
 
     margin: 10px;
@@ -49,34 +43,28 @@ body
     font-size: 25px;
 }
 
-.card-front
-{
+.card-front {
     display: block;
 }
 
-.card-back
-{
+.card-back {
     display: none;
 }
 
-.card 
-{
+.card {
     padding: 40px 40px;
 }
 
-.card.flipped > .card-front
-{
+.card.flipped>.card-front {
     display: none;
 }
 
-.card.flipped > .card-back
-{
+.card.flipped>.card-back {
     display: block;
 }
 
-#start:hover
-{
+#start:hover {
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
--moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
